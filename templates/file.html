@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="myButton">Click Me</button>
+<script>
+  var myButton = document.getElementById('myButton');
+  var clickTimeout;
+  var doubleClickDetected = false;
+  
+  myButton.addEventListener('click', function() {
+    if (doubleClickDetected) {
+      // Double click action
+      alert("Double click detected");
+      doubleClickDetected = false;
+    } else {
+      doubleClickDetected = true;
+      clickTimeout = setTimeout(function() {
+        // Single click action
+        alert("Single click detected");
+        doubleClickDetected = false;
+      }, 300); // Adjust this threshold (in milliseconds) to suit your needs
+    }
+  });
+  
+
+   </script>
+
+</body>
+</html>

@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <title>KSPCLA</title>
+  <!-- icon -->
+  <link rel="icon" href="../images/logo.jpg" type="image/x-icon" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
+  <!-- MDB -->
+  <link rel="stylesheet" href="../css/mdb/mdb.min.css" />
+  <link rel="stylesheet" href="../css/mdb/Style.css" />
+  <link rel="stylesheet" href="../css/mdb/style.scss">
+  <script src="../js/mdbjs/cities.js"></script>
+  <script src="../js/mdbjs/Validation.js"></script>
+  <script src="https://kit.fontawesome.com/92578ed81b.js" crossorigin="anonymous"></script>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.0/slimselect.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.css">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+    integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- bootstarp link -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+  <style>
+  span.required:after {
+    color: red;
+  }
+
+  .ss-main .ss-single- {
+    height: 40px;
+  }
+  .highlight {
+    border: 2px solid orangered;
+  }
+  span.placeholder {
+    background-color: #fff;
+    color: #000000;
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=KoHo:wght@200;300;400;500;600;700&display=swap');
+
+
+  .app {
+    max-width: 1000px;
+    margin: auto;
+    border: 2px solid #eeeeee;
+    padding: 20px;
+  }
+
+  .heading {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .heading h1,
+  .heading p {
+    margin: 0px;
+  }
+
+  .heading h1 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+  }
+
+  .preview {
+    margin: auto;
+    text-align: center;
+  }
+
+  .preview img {
+    width: 450px;
+    height: auto;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  }
+
+  .button_section {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .button_group input {
+    display: none;
+  }
+
+  .button_group label,
+  .clear_button {
+    font-size: 1.3rem;
+    cursor: pointer;
+    display: block;
+    color: #fff;
+    padding: 3px 30px;
+    border-radius: 5px;
+    margin: 10px 0px;
+    transition: all 0.3s ease;
+    margin-top:3px;
+  }
+
+  .clear_button {
+    background-color: #d41a1a;
+    border: 0;
+    display: none;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .clear_button:hover {
+    background-color: #9e1616;
+  }
+
+  .button_group label {
+    background-color: #1e2350;
+  }
+
+  .button_group label:hover {
+    background-color: #11142e;
+  }
+  button#start-camera {
+    padding: 10px 30px;
+}
+/* Navbar background color */
+.navbar {
+
+
+
+background-image: linear-gradient(to right,  #FF1818 ,#FFC300);
+
+
+}
+
+/* Navigation links */
+.navbar-nav {
+margin-right: 0;
+}
+
+.nav-link {
+color: #F0F0E4; /* change link color to white */
+font-weight: 900;
+margin-right: 20px;
+}
+
+
+
+/* Language selector */
+.lang {
+color: #fff;
+font-weight: 600;
+margin-right: 10px;
+}
+
+
+
+/* Logo */
+.navbar-brand img {
+width: 40px;
+height: 40px;
+margin-right: 10px;
+}
+
+.navbar-brand {
+display: flex;
+align-items: center;
+color: #F0F0E4;
+font-size: 24px;
+font-weight: 700;
+}
+
+/* Toggle button */
+.navbar-toggler {
+border: none;
+background-color: transparent;
+
+}
+
+.navbar-toggler i {
+color: #fff; /* change toggle icon color to white */
+font-size: 28px;
+}
+.active{
+color:#FF1818;
+}
+footer {
+position: fixed;
+bottom: 0;
+left: 0;
+width: 100%;
+
+}
+
+footer {
+  margin: 0;
+  padding: 0;
+}
+
+footer div {
+  margin: 0;
+  padding: 0;
+}
+
+select {
+background-color: red;
+}
+.categories-head{
+background-color:#ECECEC;
+
+
+}
+
+body.minimum {
+position: relative;
+}
+
+body.minimum::before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: url(../images/logo.jpg) no-repeat 100%;
+background-size: cover;
+background-position: center;
+filter: brightness(30%);
+z-index: -1;
+}
+
+
+ .register{
+background-color:#ECECEC;
+height:50vh;
+width:40%;
+align-items:center;
+} 
+button .click {
+  display: block;
+  margin: 0 auto;
+}
+
+
+@media only screen and (max-width: 600px){
+.categories-head h1 {
+  font-weight: 400;
+  font-size: 20px;
+
+  
+
+}
+}
+
+
+@media only screen and (max-width: 600px){
+.categories-head {
+      flex-direction: column;
+      align-items: center;
+      lex-direction: column;
+      width: 0%;
+      flex: none;
+      margin-left: -96px;
+      padding: 10px;
+      margin: -73px;
+      margin-top: 10px;
+  }
+  }
+  
+
+  @media only screen and (max-width: 600px){
+   
+  
+    section.about{
+      margin-top: -25px !important;
+    }
+    body.minimum::before{
+      height:170% !important;
+    }
+    .register{
+      height: 366px !important;
+      margin-top: 20px;
+   
+      margin-left: 30px;
+    }
+    
+  }
+
+  @media only screen and (max-width: 378px){
+    section.about{
+      margin-top: -25px !important;
+    }
+    body.minimum::before{
+      height:200% !important;
+    }
+    .register {
+      height: 466px !important;
+      margin-top: 20px;
+   
+      width: 182px !important;
+  }
+  #employeeHomeCity{
+    width:95% !important;
+  }
+  }
+
+
+
+  
+  
+  
+    
+
+
+
+
+
+</style>
+</head>
+
+<body class="minimum" >
+    <!-- NavBar Begin -->
+    <nav class="navbar navbar-expand-lg " >
+      <!-- Container wrapper Begin -->
+      <div class="container-fluid">
+        <a class="navbar-brand " href="#" style="font-size: 20px">
+          <img src="../images/logo.jpg"   class="w-px-40 h-20" alt="Logo">
+          KSPCLA
+        </a>
+  
+  
+  
+        <!-- Toggle button -->
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarRightAlignExample"
+          aria-controls="navbarRightAlignExample" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+  
+        <!-- Collapsible wrapper Begin -->
+        <div class="collapse navbar-collapse" id="navbarRightAlignExample">
+  
+          <!-- Navigation links Begin -->
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" style="font-weight:700" aria-current="page" href="index.html">Home</a>
+            </li>
+  
+            <li class="nav-item">
+              <a class="nav-link " style='color:#ECECEC;font-weight:700' aria-current="page" href="auth-login-basic.html">Admin</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" style="font-weight:700;color:#ECECEC" aria-current="page" href="contact.html">Contact</a>
+            </li>
+            <li class="nav-item" style="display:flex;align-items:center;">
+              <select name="lng" id="lng"
+              onchange="changeLanguage(this.value)"
+              style="border: none; background-color: transparent; font-weight: 700; color: #ECECEC; letter-spacing: 1px">
+          <option style="background-color: #FF1818" value="en">English</option>
+          <option style="background-color: #FF1818" value="kn">Kannada</option>
+      </select>
+      
+     
+      
+            </li>
+            </li>
+  
+            <script type="text/javascript"
+              src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  
+          </ul>
+          <!-- Navigation links -->
+        </div>
+        <!-- Collapsible wrapper End -->
+      </div>
+      <!-- Container wrapper End-->
+    </nav>
+    <!-- NavBar End -->
+  <!-- NavBar End -->
+
+  <!-- Breadcrumb Begin -->
+
+  <section class="about" style="display: flex; height:80vh;padding:30px;margin-top:70px;flex-wrap:wrap">
+    <div style="flex-basis: 0; flex-grow: 1;">
+      <h1 class="state" style="color: #5463FF; font-size: 28px; font-weight: 700; text-align: center;">Karnataka State PU College Lecturers Association</h1>
+
+      <h1 style="color: #ECECEC; font-size: 23px; font-weight: 400; text-align: center; margin-top:50px ">karnataka state pre-university college lecturers council (R), Bangalore
+
+        accredited from the government
+        
+        #26, 4th main road, M.E.I colony, Nagasandra, T.Dasarahalli, Bangalore-73
+        
+        Membership application 
+        
+        application number</h1>
+
+    </div>
+  <!--For register starts-->
+  <form id="myForm" >
+  <div style="flex-basis: 0; flex-grow: 0.6;padding:10px;border-radius:8px;width:100%" class="register">
+    <h4 style="color: #5463FF; font-size: 26px; font-weight: 700; text-align: center;">Register Here</h4>
+
+    <div class="col-sm-12 col-md-4 mb-3">
+        <label class="form-label" for="employeeHomeCity" style="color: #25266D; font-size: 15px; font-weight: 500;">District</label>
+        <input type="hidden" value="karnataka" id="employeeHomeCity" />
+        <select  id="employeeHomedistrict" name="clg_city" style="width:460px;color: #25266D; font-size: 15px; font-weight: 500" class="form-control" placeholder=" " >
+            <option >Select a district</option>
+        <option value="Bagalkot">Bagalkot</option>
+        <option value="Bangalore Rural">Bangalore Rural</option>
+        <option value="Bangalore Urban">Bangalore Urban</option>
+        <option value="Belgaum">Belgaum</option>
+        <option value="Bellary">Bellary</option>
+        <option value="Bidar">Bidar</option>
+        <option value="Bijapur">Bijapur</option>
+        <option value="Chamarajanagar">Chamarajanagar</option>
+        <option value="Chikkaballapur">Chikkaballapur</option>
+        <option value="Chikmagalur">Chikmagalur</option>
+        <option value="Chitradurga">Chitradurga</option>
+        <option value="Dakshina Kannada">Dakshina Kannada</option>
+        <option value="Davanagere">Davanagere</option>
+        <option value="Dharwad">Dharwad</option>
+        <option value="Gadag">Gadag</option>
+        <option value="Gulbarga">Gulbarga</option>
+        <option value="Hassan">Hassan</option>
+        <option value="Haveri">Haveri</option>
+        <option value="Kodagu">Kodagu</option>
+        <option value="Kolar">Kolar</option>
+        <option value="Koppal">Koppal</option>
+        <option value="Mandya">Mandya</option>
+        <option value="Mysore">Mysore</option>
+        <option value="Raichur">Raichur</option>
+        <option value="Ramanagara">Ramanagara</option>
+        <option value="Shimoga">Shimoga</option>
+        <option value="Tumkur">Tumkur</option>
+        <option value="Udupi">Udupi</option>
+        <option value="Uttara Kannada">Uttara Kannada</option>
+        <option value="Yadgir">Yadgir</option>
+
+      </select>
+
+
+    </div>
+
+    <h4 style="color: #25266D; font-size: 15px; font-weight: 500; margin-top:10px">College Type</h4>
+
+    <div class="grid sm:grid-cols-2 gap-2 mt-4">
+      <label for="hs-radio-in-form"
+        class="flex p-3 block w-full bg-white border border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
+        <input type="radio" name="college_type" value="government"
+          class="shrink-0 mt-0.5 border-gray-200 rounded-full text-blue-600 pointer-events-none focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+          id="hs-radio-in-form" onclick="showGov()">
+        <span class="text-sm text-gray-500 ml-3 dark:text-gray-400"style=" color: #25266D; font-size: 15px; font-weight: 500;">Government</span>
+      </label>
+      <label for="hs-radio-checked-in-form"
+        class="flex p-3 block w-full bg-white border border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
+        <input type="radio" name="college_type" value="aided"
+          class="shrink-0 mt-0.5 border-gray-200 rounded-full text-blue-600 pointer-events-none focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
+          id="hs-radio-checked-in-form" onclick="showAid();">
+        <span class="text-sm text-gray-500 ml-3 dark:text-gray-400 "style=" color: #25266D; font-size: 15px; font-weight: 500;">Aided</span>
+      </label>
+    </div>
+    <div onclick="validate()" style="background-color: #5463FF; display: block; margin: 0 auto;"  id="regmod" class="btn btn-primary mt-4 ">
+      Click Here To Register 
+    </div> 
+</div>
+    </div>
+  </form>
+</section>
+
+
+  <!-- Modal -->
+  <form id="teachers-data-submit">
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-fullscreen modal-fullscreen-sm-down modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 style="color:#3B55A4;font-weight:700;font-size:20px" class="modal-title" id="staticBackdropLabel"> Karnataka State PU College Lecturers Association Ⓡ Membership form</h5>
+            <button type="button" data-bs-dismiss="modal" aria-label="Close">
+              <i style="color:#3B55A4" class="fa-regular fa-circle-xmark fa-xl"></i>
+            </button>
+
+          </div>
+          <div class="modal-body"  style="background-color:#ECECEC">
+            <div class="row my-3 mx-3 rounded-lg "  style="background-color:#ECECEC">
+              <input type="text" value="" name="base64ConvertValue" id="base64ConvertValue" style="visibility: hidden;">
+
+              <div class="col-12 py-4 px-3">
+                <label class="block text-sm font-medium " style="color:#25266D;font-weight:700">
+                  Name Of The Lecturer
+                </label>
+                <div class="row justify-content-around">
+                  <div class="col-sm-12 col-md-12 mb-3">
+                    <label   class="form-label" for="employeeFirstName"><span style="color:#25266D;font-weight:700" class="required">Full Name</span></label>
+                    <input type="text" id="employeeFirstName" placeholder=" " name="full_name" class="form-control" />
+                  </div>
+
+                </div>
+              </div>
+
+            
+
+              <div class=" hide col-sm-12 col-md-12 mb-3" id="textKGID" style="margin-top:20px;display:none">
+                <label  style="color:#25266D;font-weight:700" class="form-label" for="employeeDisplayName">KGID Number</label>
+                <input type="text" class="form-control" id="textkg" placeholder=" Enter the KGID Number "
+                  name="kgid_hrms" title="Please enter only alphabets and hyphens in the Content, Subject field." />
+                <label  style="color:#25266D;font-weight:700" class="form-label" for="employeetype" style="margin-top:20px">Recruitment Mode: </label>
+
+                <div class="grid sm:grid-cols-2 gap-2">
+                  <label for="hs-radio-in-form"
+                    class="flex p-3 block w-full bg-white border border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
+                    <input type="radio" name="mode_of_recuritment_or_aided_date" />
+                    <span  style="color:#25266D;font-weight:700" class="text-sm text-gray-500 ml-3 dark:text-gray-400">Directed</span>
+                  </label>
+
+                  <label for="hs-radio-checked-in-form"
+                    class="flex p-3 block w-full bg-white border border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
+                    <input type="radio" name="mode_of_recuritment_or_aided_date" />
+                    <span  style="color:#25266D;font-weight:700" class="text-sm text-gray-500 ml-3 dark:text-gray-400">Promoted</span>
+                  </label>
+                </div>
+              </div>
+              <div class="hide col-sm-12 col-md-12 mb-3" id="textHRMS" style="margin-top:20px;display:none">
+                <label  style="color:#25266D;font-weight:700" class="form-label" for="employeeDisplayName">HRMS Number &amp; Institute Aided Date</b></label>
+                <div class="grid sm:grid-cols-2 gap-2">
+                  <input type="text" id="textkg" placeholder=" Enter the HRMS Number " name="kgid_hrms"
+                    class="form-control" title="Please enter only alphabets and hyphens in the " />
+
+                  <label for="hs-radio-checked-in-form"
+                    class="flex p-3 block w-full bg-white border border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
+                    <input type="date" name="mode_of_recuritment_or_aided_date" />
+                  </label>
+                </div>
+              </div>
+
+
+
+
+              <div class="col-sm-12 col-md-12 mb-3">
+                <label  style="color:#25266D;font-weight:700" class="form-label" for="employeeDisplayName"> Subject</label>
+                <input type="text" id="employeeSubject" placeholder=" " name="subject" class="form-control"
+                 title="Please enter only alphabets and hyphens in the Content, Subject field." />
+              </div>
+              <div class="col-sm-12 col-md-12 mb-3">
+                <label  style="color:#25266D;font-weight:700" class="form-label" for="employeeDisplayName">Qualification</label>
+                <input type="text" id="employeeQualification" placeholder=" " name="qualification" class="form-control"
+                  title="Please enter only alphabets, dots, hyphens, and commas in the Eligibility field."  />
+              </div>
+
+              <div class="col-sm-12 col-md-12 mb-3">
+                <label  style="color:#25266D;font-weight:700" class="form-label" for="employeeDateofJoin">Date Of Birth</label>
+                <input type="date" class="form-control" name="date_of_birth" id="employeeDateofBirth"
+                  style=""  />
+              </div>
+
+              <div class="col-12 py-4 px-3">
+                <label class="block text-sm font-medium text-gray-700"  style="color:#25266D;font-weight:700">
+                  College Address and College Code
+                </label>
+                <div class="col-sm-12 col-md-12 mb-3">
+                  <label class="form-label" for="employeeHomeStreetName"  style="color:#25266D;font-weight:700">Street Name</label>
+
+                  <input type="text" id="clg_street_name" name="clg_street_name" placeholder=" " class="form-control"
+                    required />
+
+                    
+
+
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-12 mb-3">
+                <label class="form-label"  style="color:#25266D;font-weight:700" for="employeeHomeCity">College Taluk</label>
+                <input type="text" id="employeeCollegeTaluk" name="clg_taluk" class="form-control" />
+              </div>
+              <div class="col-sm-12 col-md-4 mb-3">
+                <label class="form-label"  style="color:#25266D;font-weight:700" for="employeeHomeCity">Country</label>
+                <select id="employeeHomeCountry" class="form-control" name="clg_country">
+                  <option value="India "  style="color:#25266D;font-weight:700"> India</option>
+                </select>
+              </div>
+
+              <div class="col-sm-12 col-md-4 mb-3">
+                <label  style="color:#25266D;font-weight:700" class="form-label" for="employeeHomeCity">Zip Code</label>
+                <input type="text" id="zipCode" placeholder=" " name="clg_zip_code" class="form-control" maxlength="6" />
+
+              </div>
+
+              <div class="col-sm-12 col-md-4 mb-3">
+                <label class="form-label"  style="color:#25266D;font-weight:700" for="employeeHomeCity">College Code</label>
+
+                <input type="text" id="collegeCode" placeholder=" " name="clg_code" class="form-control" maxlength="6"
+                   />
+
+              </div>
+
+              <div class="col-12 py-4 px-3">
+                <label class="block text-sm font-medium text-gray-700">
+                  Residential Address
+                </label>
+                <div class="col-sm-12 col-md-12 mb-3">
+                  <label class="form-label" for="employeeHomeStreetName">Street Name</label>
+                  <input type="text" id="streetName" placeholder=" " name="emp_street_name" class="form-control"
+                   />
+
+                </div>
+              </div>
+              <div class="col-sm-12 col-md-4 mb-3 employeeCommunicationAddress">
+                <label class="form-label" for="employeeCommunicationState">State</label>
+                <select id="employeeCommunicationState" name="emp_state"
+                  onchange="print_city('employeeCommunicationCity', this.selectedIndex);"
+                  name="employeeCommunicationState" class="form-control" placeholder=" " />
+                  <option value="none">Choose</option>
+                </select>
+              </div>
+              <div class="col-sm-12 col-md-4 mb-3 employeeCommunicationAddress">
+                <label class="form-label" for="employeeCommunicationCity">district</label>
+                <select id="employeeCommunicationCity" name="emp_city" class="form-control" placeholder=" "
+                  ></select>
+              </div>
+              <div class="col-sm-12 col-md-4 mb-3">
+                <label class="form-label" for="employeeHomeCity"  style="color:#25266D;font-weight:700">Employee Residential Taluk</label>
+                <input type="text" id="employeeHomeTaluk" name="emp_taluk" class="form-control" />
+              </div>
+
+              <div class="col-sm-12 col-md-6 mb-3">
+                <label class="form-label"  style="color:#25266D;font-weight:700" for="employeeHomeCity">Country</label>
+                <select id="employeeHomeCountry" name="emp_country" class="form-control" placeholder=" " required>
+                  <option value="India">India</option>
+                </select>
+              </div>
+
+              <div class="col-sm-12 col-md-6 mb-3">
+                <label class="form-label"  style="color:#25266D;font-weight:700" for="employeeHomeCity">Zip Code</label>
+                <input type="text" id="emphomezipCode" placeholder=" " name="emp_zip_code" class="form-control" maxlength="6"
+                   />
+              </div>
+
+              <div class="col-sm-12 col-md-6 mb-3">
+                <label class="form-label"   for="employeeOfficialNumber"><span style="color:#25266D;font-weight:700">Contact Number</span></label>
+
+                <input type="text" id="contactNumber" name="emp_contact" placeholder=" " class="form-control" maxlength="10"
+                 title="Please enter a valid 10-digit contact number." />
+
+
+              </div>
+              <div class="col-sm-12 col-md-6 mb-3">
+                <label class="form-label" for="employeeAlternateMobile" style="color:#25266D;font-weight:700">Alternate Contact Number</label>
+                <input type="text" id="altcontactNumber" name="emp_alt_contact" placeholder=" " class="form-control"
+                  maxlength="10" />
+              </div>
+              <div class="col-sm-12 col-md-6 mb-3">
+                <label class="form-label" style="color:#25266D;font-weight:700" for="employeeDateofJoin">Date of Issue</label>
+                <input type="date" class="form-control disableDate" name="issue_date" id="employeeDateofissue"
+                  style=""  />
+              </div>
+              <div class="col-sm-12 col-md-6 mb-3">
+                <label style="color:#25266D;font-weight:700" class="form-label" for="employeeDateofJoin">Date of Joining Service</label>
+                <input type="date" class="form-control" name="joining_date" id="employeeDateofJoin"
+                  style=""  />
+              </div>
+              <div class="col-12 py-4 px-3">
+                <label style="color:#25266D;font-weight:700" class="block text-sm font-medium text-gray-700">
+                  Annual Membership
+                </label>
+                <div class="row justify-content-around">
+                  <div class="col-sm-12 col-md-4 mb-3">
+                    <label class="form-label" for="employeeFirstName"><span style="color:#25266D;font-weight:700" class="required">Fee</span></label>
+                    <input type="text" id="fee" name="fee" placeholder=" " class="form-control" minlength="2" maxlength="4"
+                      title="Please enter only numbers in the fee field."  />
+                  </div>
+                  <div class="col-sm-12 col-md-4 mb-3">
+                    <label class="form-label" style="color:#25266D;font-weight:700" for="employeeDateofJoin">Date
+                    </label>
+                    <input type="date" class="form-control disableDate" name="transact_date" id="employeeDateoftransact"
+                      style=""  />
+                  </div>
+                  <div class="col-sm-12 col-md-4 mb-3">
+                    <label class="form-label" for="employeeLastName"><span style="color:#25266D;font-weight:700;border-color:white" class="required">Receipt
+                        Number</span></label>
+                    <input type="text" id="employeeLastName" name="reciept_num" class="form-control" readonly />
+
+                  </div>
+                  <div class="col-sm-12 col-md-12 mb-3">
+                    <label class="form-label" style="color:#25266D;font-weight:700" for="employeeHomeCity">Blood Group</label>
+
+                    <select name="blood_grp" id="bloodgroup" class="form-control dropdown" style="" >
+                      <option style="color:#25266D;font-weight:700" value=""  disabled selected>Select</option>
+                      <option value="A-">A-</option>
+                      <option value="B-">B-</option>
+                      <option value="O-">O-</option>
+                      <option value="B+">B+</option>
+                      <option value="O+">O+</option>
+                      <option value="A+">A+</option>
+                      <option value="A1+">A1+</option>
+                      <option value="A1B-">A1B-</option>
+                      <option value="AB+">AB+</option>
+                      <option value="AB-">AB-</option>
+                      <option value="A1B+">A1B+</option>
+                      <option value="A2+">A2+</option>
+                      <option value="A2B-">A2B-</option>
+                      <option value="A2B+">A2B+</option>
+                      <option value="A1-">A1-</option>
+                    </select>
+
+
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="app">
+                <div class="heading">
+                  <h1 style="color:#25266D;font-weight:700" >File Upload Preview</h1>
+                  <p style="color:#25266D;font-weight:700;padding:20px">Upload a file to continue.</p>
+                </div>
+                <div class="preview">
+                  <div>
+                    <img src="../assets/img/avatars/demo.jpeg" alt="" name="image_name" class="preview-image"
+                      accept="image/*">
+                  </div>
+                </div>
+                <div class="button_section">
+                  <div class="button_group">
+                    <label for="input1">Upload file &nbsp; <i class="fa fa-upload" aria-hidden="true"></i></label>
+                    <input type="file" id="input1" name="image" accept="image/*" onclick="enableBtn()"
+                      onchange="encodeImageFileAsURL(this)">
+                  </div>
+                  <button type="button" id="start-camera"
+                    class="focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
+                    onclick="disableBtn();showClickPhotoButton()">Start Camera</button>
+
+                </div>
+                <video id="video" width="320" height="240" autoplay></video>
+                <button type="button" id="click-photo"
+                  class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                  onclick="showClearButton()" onchange="encodeCaptureImageFileAsURL(this)" style="display:none">Click
+                  Photo</button>
+                <center><canvas id="canvas" name="image_name" width="320" height="240"></canvas></center>
+                <button type="button" id="clear-photo"
+                  class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700"
+                  onclick="clearContent()" style="display:none">Clear Photo</button>
+                <button class="clear_button"><span>Clear</span><i class="fa fa-trash" aria-hidden="true"></i></button>
+
+              </div>
+
+
+              <script>
+                let camera_button = document.querySelector("#start-camera");
+                let video = document.querySelector("#video");
+                let click_button = document.querySelector("#click-photo");
+                let canvas = document.querySelector("#canvas");
+
+                camera_button.addEventListener('click', async function () {
+                  let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+                  video.srcObject = stream;
+                });
+
+                click_button.addEventListener('click', function () {
+                  canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+                  let image_data_url = canvas.toDataURL('image/jpeg');
+                  document.querySelector('#base64ConvertValue').value = image_data_url.replace(/^.+,/, "");
+
+                  // data url of the image
+                  console.log(image_data_url.replace(/^.+,/, ""));
+                });
+              </script>
+              <div class="col-sm-12 col-md-12 mb-3">
+                <input class="form-check-input" type="checkbox" role="switch" id="employeeSalaryVariableCheck">
+                <label class="form-check-label" for="employeeSalaryVariableCheck">
+                  <b>I confirm that all the above information is correct. agree to take membership subject to the rules
+                    and regulations of the association</b>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary"  value="Submit" id="teachers-information">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <footer>
+    <div class="text-center" style="background-color:#FF1818; margin: 0; padding: 10px;">
+      <span style="color:#F0F0E4;font-family:sans-serif;font-size:900">Copyright © 2023 KSPCLA.
+        Designed by </span>
+      <a href="https://m2s.co.in/">
+        <span style="color: #FFC300"> M2 SANTHE </span>
+      </a>
+    </div>
+  </footer>
+  <!-- MDB Lib's -->
+  <script type="text/javascript" src="../js/mdbjs/mdb.min.js"></script>
+
+  <!-- Custom scripts -->
+ 
+
+ 
+  <script src="../js/mdbjs/server_conf.js"></script>
+  <script>
+    console.log(`${serverAddress}`)  
+  </script>
+    <script src="../js/mdbjs/script.js"></script>
+  <script src="../js/mdbjs/ajax.js"></script>
+  <script src="/js/mdbjs/Validation.js"></script>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.js"></script>
+
+<!--Razorpay script-->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+</html>

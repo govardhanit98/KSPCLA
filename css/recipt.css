@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap');
+
+*{
+    font-family: 'Muli', sans-serif;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body{
+    margin: 0;
+}
+
+:root{
+    --green:#27ae60;
+    --orange:#f39c12;
+    --red:#e74c3c;
+    --black:#333;
+    --light-color:#666;
+    --white:#fff;
+    --light-bg:#f6f6f6;
+    --border:.2rem solid var(--black);
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+ }
+
+ .main{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light-bg);
+    gap: 4vh;
+ }
+
+ .recipt {
+    border: var(--border);
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: 10px;
+    text-transform: capitalize;
+    width: 40vw;
+ }
+
+ .info {
+    display: flex;
+    justify-content: space-between;
+ }
+
+ .details{
+    display: flex;
+    gap: 8vw;
+ }
+
+ h1{
+    text-align: center;
+ }
+
+ p{
+    font-size: small;
+ }
+
+ h5{
+    font-size: small;
+ }

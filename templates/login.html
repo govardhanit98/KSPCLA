@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+
+<html
+  lang="en"
+  class="light-style customizer-hide"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../assets/"
+  data-template="vertical-menu-template-free"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+
+    <title>KSPCLA</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../images/logo.jpg" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- Icons. Uncomment required icon fonts -->
+    <link rel="stylesheet" href="../assets/boxicons/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../css/sneatbs/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../css/sneatbs/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../css/sneatbs/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+
+    <!-- Page CSS -->
+    <!-- Page -->
+    <link rel="stylesheet" href="../css/sneatbs/demo.css" />
+    <!-- below provided style.css file is coded by surya -->
+    <link rel="stylesheet" href="../css/sneatbs/style.css">
+    <!-- Helpers -->
+    <script src="../js/mdbjs/helpers.js"></script>
+    <script src="../js/sneatjs/helpers.js"></script>
+
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="../assets/js/config.js"></script>
+  </head>
+
+  <body>
+    <!-- Content -->
+
+    <div class="container-xxl">
+      <div class="authentication-wrapper authentication-basic container-p-y">
+        <div class="authentication-inner">
+          <!-- Register Card -->
+          <div class="card">
+            <div class="card-body">
+              <!-- Logo -->
+              <div class="app-brand justify-content-center">
+                  <span class="app-brand-text demo text-body fw-bolder">ID Card</span>
+              </div>
+              <!-- /Logo -->
+              <div class="flex-row-between">
+                <div>
+                  <h4 id="name" class="mb-2">Surya Dasari</h4>
+                  <p id="qualification" class="mb-4">qualification will come here</p>
+                </div>
+                <img class="dp" src="#" alt="profile pic">
+              </div>
+              <hr class="line"/>
+              <p id="subject">
+                  Subject will come here    
+              </p>
+              <p id="clg_code">
+                College code: GIET Engineering College
+              </p>
+              <p id="clg_add">
+                College Address: street name, city, state, country, zipcode.
+              </p>
+              <p id="number">
+                Contact Number: 6300524244
+              </p>
+              <p id="bldgrp">
+                Blood Group: Z+
+              </p>
+            </div>
+          </div>
+          <!-- Register Card -->
+        </div>
+      </div>
+    </div>
+
+    <!-- / Content -->
+    <!-- below script element developer by surya -->
+    <script>
+      const urlParams = (window.location.href);
+      const params = urlParams.split('?')[1];
+      const param = params.split('=')[1];
+      // console.log(param);
+      function cardGen(user){
+        var name = document.getElementById('name');
+        name.textContent = user['full_name'];
+        var eligibility = document.getElementById('qualification');
+        eligibility.textContent = user['qualification'];
+        var subject = document.getElementById('subject');
+        subject.textContent ='Teaching Field: ' + user['subject'];
+        var clg_code = document.getElementById('clg_code');
+        clg_code.textContent ='College Code: '+ user['clg_code'];
+        var clg_add = document.getElementById('clg_add');
+        clg_add.textContent ='College Address: '+ user['clg_street_name']+', '+user['clg_city']+', '+user['clg_state']+', '+user['clg_contry']+', '+user['clg_zip_code'];
+        var number = document.getElementById('number');
+        number.textContent = user['emp_contact'];
+        var bldgrp = document.getElementById('bldgrp');
+        bldgrp.textContent = user['blood_grp'];
+        var name = document.getElementById('name');
+        name.textContent = user['full_name'];
+        var image = document.querySelector('.dp');
+        const imageSource = `../images/${user['img_name']}`;
+        image.src = imageSource;
+      }
+    </script>
+    <script>
+      fetch(`http://13.234.186.61:5000/admin/dashboard/`+param)
+      .then(x => x.json())
+      .then(y => {
+        console.log(y);
+        cardGen(y);
+      })
+    </script>
+<!-- upto here by surya -->
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+
+    <script src="../assets/vendor/js/menu.js"></script>
+    <!-- endbuild -->
+    <!-- <a href=""></a> -->
+
+    <!-- Vendors JS -->
+
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+
+    <!-- Page JS -->
+    <!-- Place this tag in your head or just before your close body tag. -->
+  </body>
+</html>

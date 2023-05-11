@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>KSPCLA</title>
+    <!-- icon -->
+    <link rel="icon"  href="../images/logo.jpg" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link  rel="stylesheet"  href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"/>
+    <!-- MDB -->
+    <link rel="stylesheet" href="../css/mdb/mdb.min.css" />
+    <link rel="stylesheet" href="../css/mdb/Style.css" />
+    <link rel="stylesheet" href="../css/mdb/style.scss">
+    <script src="../js/mdbjs/cities.js"></script>
+    <!-- <script src="../js/mdbjs/Validation.js"></script> -->
+    <script src="https://kit.fontawesome.com/92578ed81b.js" crossorigin="anonymous"></script>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slim-select/1.27.0/slimselect.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.css">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <style>
+    
+    
+      /* Navbar background color */
+      .navbar {
+      
+      
+      
+      background-image: linear-gradient(to right,  #FF1818 ,#FFC300);
+      
+      
+      }
+      
+      /* Navigation links */
+      .navbar-nav {
+      margin-right: 0;
+      }
+      
+      .nav-link {
+      color: #F0F0E4; /* change link color to white */
+      font-weight: 900;
+      margin-right: 20px;
+      }
+      
+      
+      
+      /* Language selector */
+      .lang {
+      color: #fff;
+      font-weight: 600;
+      margin-right: 10px;
+      }
+      
+      
+      
+      /* Logo */
+      .navbar-brand img {
+      width: 40px;
+      height: 40px;
+      margin-right: 10px;
+      }
+      
+      .navbar-brand {
+      display: flex;
+      align-items: center;
+      color: #F0F0E4;
+      font-size: 24px;
+      font-weight: 700;
+      }
+      
+      /* Toggle button */
+      .navbar-toggler {
+      border: none;
+      background-color: transparent;
+      
+      }
+      
+      .navbar-toggler i {
+      color: #fff; /* change toggle icon color to white */
+      font-size: 28px;
+      }
+      .active{
+      color:#FF1818;
+      }
+      footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      
+      }
+      
+      footer {
+        margin: 0;
+        padding: 0;
+      }
+      
+      footer div {
+        margin: 0;
+        padding: 0;
+      }
+      
+      select {
+      background-color: red;
+      }
+      .categories-head{
+      background-color:#ECECEC;
+      
+      
+      }
+      
+      body.minimum {
+      position: relative;
+      }
+      
+      body.minimum::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url(../images/logo.jpg) no-repeat 100%;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(30%);
+      z-index: -1;
+      }
+      
+      
+       .register{
+      background-color:#ECECEC;
+      height:50vh;
+      width:40%;
+      align-items:center;
+      } 
+      button .click {
+        display: block;
+        margin: 0 auto;
+      }
+      
+      
+      @media only screen and (max-width: 600px){
+      .categories-head h1 {
+        font-weight: 400;
+        font-size: 20px;
+      
+        
+      
+      }
+      }
+      
+      
+      @media only screen and (max-width: 600px){
+      .categories-head {
+            flex-direction: column;
+            align-items: center;
+            lex-direction: column;
+            width: 0%;
+            flex: none;
+            margin-left: -96px;
+            padding: 10px;
+            margin: -73px;
+            margin-top: 10px;
+        }
+        }
+        
+      
+        @media only screen and (max-width: 600px){
+         
+        
+          section.about{
+            margin-top: -25px !important;
+          }
+          body.minimum::before{
+            height:170% !important;
+          }
+          .register{
+            height: 366px !important;
+            margin-top: 20px;
+         
+            margin-left: 30px;
+          }
+          
+        }
+      
+        @media only screen and (max-width: 378px){
+          section.about{
+            margin-top: -25px !important;
+          }
+          body.minimum::before{
+            height:200% !important;
+          }
+          .register {
+            height: 466px !important;
+            margin-top: 20px;
+         
+            width: 182px !important;
+        }
+        #employeeHomeCity{
+          width:95% !important;
+        }
+        }
+      
+    </style>
+  </head>
+  <body>
+      <!-- NavBar Begin -->
+      <nav class="navbar navbar-expand-lg " >
+        <!-- Container wrapper Begin -->
+        <div class="container-fluid">
+          <a class="navbar-brand " href="#" style="font-size: 20px">
+            <img src="../images/logo.jpg"   class="w-px-40 h-20" alt="Logo">
+            KSPCLA
+          </a>
+    
+    
+    
+          <!-- Toggle button -->
+          <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarRightAlignExample"
+            aria-controls="navbarRightAlignExample" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button>
+    
+          <!-- Collapsible wrapper Begin -->
+          <div class="collapse navbar-collapse" id="navbarRightAlignExample">
+    
+            <!-- Navigation links Begin -->
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link " style="font-weight:700;color:#ECECEC" aria-current="page" href="index.html">Home</a>
+              </li>
+    
+              <li class="nav-item">
+                <a class="nav-link active" style='font-weight:700;color:#ECECEC' aria-current="page" href="auth-login-basic.html">Admin</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" style="font-weight:700;color:#FF1818" aria-current="page" href="contact.html">Contact</a>
+              </li>
+              <li class="nav-item" style="display:flex;align-items:center;">
+                <select name="lng" id="lng"
+                onchange="changeLanguage(this.value)"
+                style="border: none; background-color: transparent; font-weight: 700; color: #ECECEC; letter-spacing: 1px">
+            <option style="background-color: #FF1818" value="en">English</option>
+            <option style="background-color: #FF1818" value="kn">Kannada</option>
+        </select>
+        
+       
+        
+              </li>
+              </li>
+    
+              <script type="text/javascript"
+                src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+            </ul>
+            <!-- Navigation links -->
+          </div>
+          <!-- Collapsible wrapper End -->
+        </div>
+        <!-- Container wrapper End-->
+      </nav>
+    <div class="container mt-5">
+
+ 
+      <!--Section: Content-->
+      <section class="dark-grey-text mb-5">
+        
+        <style>
+          .map-container-section {
+            overflow:hidden;
+            padding-bottom:56.25%;
+            position:relative;
+            height:0;
+          }
+          .map-container-section iframe {
+            left:0;
+            top:0;
+            height:100%;
+            width:100%;
+            position:absolute;
+          }
+        </style>
+  
+        <!-- Section heading -->
+        <h3 class="font-weight-bold text-center mb-4"style="color:#25266D;font-size:25px">Contact Us</h3>
+        <!-- Section description -->
+  
+        <!-- Grid row -->
+        <div class="row container contact" >
+  
+          <!-- Grid column -->
+          <div class="col-lg-5 mb-lg-0 pb-lg-3 mb-4">
+  
+            <!-- Form with header -->
+            <div class="card" style="background-color: #ECECEC">
+              <div class="card-body">
+                <!-- Header -->
+                <div class="form-header blue accent-1">
+                  <h3 class="mt-2"style="color: #3C1874" ><i class="fas fa-envelope" style="color: #3B55A4;font-size:15px;font-weight:600"></i> Write to us :</h3>
+                </div>
+                <!-- Body -->
+                <div class="md-form">
+                  <i style="color: #3B55A4;font-size:15px;font-weight:600" class="fas fa-user prefix grey-text"></i>
+                  <input type="text" id="form-name" class="form-control">
+                  <label style="color: #3B55A4;font-size:15px;font-weight:600" for="form-name">Your name</label>
+                </div>
+                <div class="md-form">
+                  <i style="color: #3B55A4;font-size:15px;font-weight:600" class="fas fa-envelope prefix grey-text"></i>
+                  <input type="text" id="form-email" class="form-control">
+                  <label style="color: #3B55A4;font-size:15px;font-weight:600" for="form-email">Your email</label>
+                </div>
+                <div class="md-form">
+                  <i style="color: #3B55A4;font-size:15px;font-weight:600" class="fas fa-tag prefix grey-text"></i>
+                  <input type="text" id="form-Subject" class="form-control">
+                  <label style="color: #3B55A4;font-size:15px;font-weight:600" for="form-Subject">Subject</label>
+                </div>
+                <div class="md-form">
+                  <i style="color: #3B55A4;font-size:15px;font-weight:600" class="fas fa-pencil-alt prefix grey-text"></i>
+                  <textarea id="form-text" class="form-control md-textarea" rows="3"></textarea>
+                  <label style="color: #3B55A4;font-size:15px;font-weight:600" for="form-text">Send message</label>
+                </div>
+                <div class="text-center">
+                  <button style="color: #3B55A4;font-size:15px;font-weight:600" class="btn btn-light-blue">Submit</button>
+                </div>
+              </div>
+            </div>
+            <!-- Form with header -->
+  
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+     
+  
+            <!--Google map-->
+      
+
+            <div class="col-lg-7 contactus">
+              <img class="contact" src="../images/Contact1.jpg" style="height:60vh"/>
+            </div>
+            <!-- Buttons-->
+            <div class="row text-center">
+              <div class="col-md-4">
+                <a class="btn-floating blue accent-1">
+                  <i style="color: #3B55A4;font-size:15px;font-weight:600" class="fas fa-map-marker-alt"></i>
+                </a>
+                <p style="color: #3B55A4;font-size:15px;font-weight:600">Bangalore Urban, Karnataka-560057.
+               </p> 
+                <p style="color: #3B55A4;font-size:15px;font-weight:600" class="mb-md-0">India</p>
+              </div>
+              <div class="col-md-4">
+                <a class="btn-floating blue accent-1">
+                  <i style="color: #3B55A4;font-size:15px;font-weight:600" class="fas fa-phone"></i>
+                </a>
+                <p style="color: #3B55A4;font-size:15px;font-weight:600" href="tel:+91 7760766835">+91 7760766835</p>
+                <p style="color: #3B55A4;font-size:15px;font-weight:600" class="mb-md-0">Mon - Fri, 8:00-22:00</p>
+              </div>
+              <div class="col-md-4">
+                <a class="btn-floating blue accent-1">
+                  <i style="color: #3B55A4;font-size:15px;font-weight:600" class="fas fa-envelope"></i>
+                </a>
+                <p style="color: #3B55A4;font-size:15px;font-weight:600">info@m2s.co.in</p>
+              
+              </div>
+            </div>
+  
+          </div>
+          <!-- Grid column -->
+  
+        </div>
+        <!-- Grid row -->
+  
+      </section>
+      <!--Section: Content-->
+     
+    </div>
+
+</div>
+
+   <div >
+              <iframe style="height: 400px;width:100%" src="https://maps.google.com/maps?q=India&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0"
+                style="border:0" allowfullscreen></iframe>
+            </div>
+
+<footer style="margin-top:20px">
+  <div class="text-center " style="background-color:#FF1818; margin: 0; padding: 10px;">
+    <span style="color:#F0F0E4;font-family:sans-serif;font-size:900">Copyright © 2023 KSPCLA.
+      Designed by </span>
+    <a href="https://m2s.co.in/">
+      <span style="color: #FFC300"> M2 SANTHE </span>
+    </a>
+  </div>
+</footer>
+
+        <!-- MDB Lib's -->
+         <script type="text/javascript" src="../js/mdbjs/mdb.min.js"></script>
+    
+         <!-- Custom scripts -->
+ <script type="text/javascript"></script>
+</body>
+</html>
+

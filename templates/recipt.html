@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KSPCLA</title>
+    <link rel="stylesheet"  href="../images/logo.jpg">
+</head>
+
+<body>
+    <div class="main">
+        <div class="recipt">
+            <h1>membership fee recipt</h1>
+            <div class="info">
+                <!-- <p>date : <span id="date">today</span></p> -->
+                <p>time : <span id="time-stamp">time stamp</span></p>
+            </div>
+            <hr>
+            <div class="details">
+                <div class="part">
+                    <h5>name : <span id="name"></span></h5>
+                    <h5>date : <span id="paid-date"></span></h5>
+                    <h5>amount paid : <span>₹ 400/-</span></h5>
+                </div>
+
+                <div class="part">
+                    <h5>registration id : <span id="order-id"></span></h5>
+                    <h5>transaction id : <span id="payment-id"></span></h5>
+                </div>
+            </div>
+            <hr>
+            <p>note : this recipt is the proof of your registration is done.</p>
+        </div>
+        <div>
+            <button id="goHome">Go Home</button>
+            <button onclick="window.print()">Print</button>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    const url = new URL(window.location.href);
+    const name = url.searchParams.get('name');
+    const date = url.searchParams.get('date');
+    const orderId = url.searchParams.get('orderId');
+    const paymentId = url.searchParams.get('paymentId');
+    document.getElementById('name').innerText = name;
+    document.getElementById('paid-date').innerText = date;
+    document.getElementById('order-id').innerText = orderId;
+    document.getElementById('payment-id').innerText = paymentId;
+    const dateObj = new Date();
+    document.getElementById('time-stamp').innerText = dateObj;
+
+    let homeBtn = document.getElementById("goHome");
+    homeBtn.onclick = function () {
+    window.location = "index.html";
+    }
+
+
+</script>
+
+</html>
