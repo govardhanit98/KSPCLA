@@ -54,6 +54,15 @@
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="../js/sneatjs/config.js"></script>
+
+<style>
+  input#terms-conditions {
+    margin-left: -20px;
+    height: 15px;
+    width: 15px;
+}
+</style>
+
   </head>
 
   <body>
@@ -63,22 +72,22 @@
       <div class="authentication-wrapper authentication-basic container-p-y">
         <div class="authentication-inner">
           <!-- Register Card -->
-          <div class="card">
+          <div class="card" style="background-color:#ECECEC">
             <div class="card-body">
               <!-- Logo -->
               <div class="app-brand justify-content-center">
                 <a href="index.html" class="app-brand-link gap-2">
 
-                  <span class="app-brand-text demo text-body fw-bolder">ID Card Generator</span>
+                  <span class="app-brand-text demo text-body fw-bolder" style="color:#25266D">ID Card Generator</span>
                 </a>
               </div>
               <!-- /Logo -->
-              <h4 class="mb-2">Adventure starts here 🚀</h4>
-              <p class="mb-4">Make your management easy and fun!</p>
+              <h4 style="color:#3B55A4;align-items:center;font-weight: 800" class="mb-2">ADMIN REGISTER</h4>
+             
 
               <form id="formAdminRegister" class="mb-3" method="PUT">
                 <div class="mb-3">
-                  <label for="username" class="form-label">Username</label>
+                  <label for="username" class="form-label" style="color:#3B55A4;">Username</label>
                   <input
                     type="text"
                     class="form-control"
@@ -89,11 +98,11 @@
                   />
                 </div>
                 <div class="mb-3">
-                  <label for="email" class="form-label">Email</label>
+                  <label for="email" class="form-label" style="color:#3B55A4;">Email</label>
                   <input type="text" class="form-control" id="email" name="email_id" placeholder="Enter your email" />
                 </div>
                 <div class="mb-3 form-password-toggle">
-                  <label class="form-label" for="password">Password</label>
+                  <label class="form-label" for="password" style="color:#3B55A4;">Password</label>
                   <div class="input-group input-group-merge">
                     <input
                       type="password"
@@ -109,20 +118,20 @@
 
                 <div class="mb-3">
                   <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms" />
-                    <label class="form-check-label" for="terms-conditions">
+                    <input  type="checkbox" id="terms-conditions" name="terms" />
+                    <label class="form-check-label" for="terms-conditions" style="color:#3B55A4;margin-left:10px">
                       I agree to
-                      <a href="javascript:void(0);">privacy policy & terms</a>
+                      <a style="color:#3B55A4;" href="javascript:void(0);">privacy policy & terms</a>
                     </label>
                   </div>
                 </div>
-                <button type="submit" class="btn btn-primary d-grid w-100" id="submitButton">Sign up</button>
+                <button type="submit" class="btn btn-primary d-grid w-100"  id="submitButton">Sign up</button>
               </form>
 
               <p class="text-center">
-                <span>Already have an account?</span>
+                <span style="color:#3B55A4;">Already have an account?</span>
                 <a href="auth-login-basic.html">
-                  <span>Sign in instead</span>
+                  <span style="color:#3B55A4;">Sign in instead</span>
                 </a>
               </p>
             </div>
