@@ -167,7 +167,7 @@ function createEditBtns() {
     });
   }
   async function postReq(req, empCon) {
-    const url = "http://13.234.186.61:5000/admin/dashboard/" + empCon;
+    const url = "http://localhost:5000/admin/dashboard/" + empCon;
     let data = req;
     // PUT request using fetch with async/await
     console.log("before:", typeof data);
@@ -252,7 +252,7 @@ function createEditBtns() {
 
 //------------------------------ for Getting The final data with appended values ------------------------------------------
 
-fetch("http://13.234.186.61:5000/admin/dashboard/0")
+fetch("http://localhost:5000/admin/dashboard/0")
   .then((x) => x.json())
   .then((y) => appendData(y));
 
@@ -269,7 +269,7 @@ function checkAll(o) {
 }
 //------------------------------ Delete Function to delete the records from table ------------------------------------------
 function delData(empPh) {
-  const url = "http://13.234.186.61:5000/admin/dashboard/" + empPh;
+  const url = "http://localhost:5000/admin/dashboard/" + empPh;
   (async () => {
     // PUT request using fetch with async/await
     const requestOptions = {

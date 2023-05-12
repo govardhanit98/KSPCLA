@@ -345,8 +345,13 @@ class TeachersData(Resource):
 	def get(self):
 		page = request.args.get('page', 1, int)
 		per_page = request.args.get('per_page',10,int)
+		district = request.args.get('district',"District", str)
+		print(page,per_page,district)
 		try:
-			teachers = Teachers.query.order_by(Teachers.id.desc()).paginate(page=page, per_page=per_page).items
+			if district != "District":
+				teachers = Teachers.query.filter(Teachers.clg_city == district).order_by(Teachers.id.desc()).paginate(page=page, per_page=per_page).items
+			else:
+				teachers = Teachers.query.order_by(Teachers.id.desc()).paginate(page=page, per_page=per_page).items
 			if teachers:
 				data = TeachersData.test(teachers)
 				'''

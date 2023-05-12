@@ -1,1 +1,1 @@
-const serverAddress = "http://13.234.186.61/kspcla_client"
+const serverAddress = "http://localhost:3000/kspcla_client"
