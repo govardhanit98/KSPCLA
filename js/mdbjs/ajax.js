@@ -170,7 +170,7 @@ $("#teachers-information").click(function (event) {
   let filled = validateForm()
 
   if (filled){
-    let url = "http://13.234.186.61:5000/register/success/" + data["emp_contact"];
+    let url = "http://localhost:5000/register/success/" + data["emp_contact"];
   fetch(url, {
     method: "POST",
     headers: {
@@ -188,7 +188,7 @@ $("#teachers-information").click(function (event) {
       if (confirm("do you wish to make payment") == true) {
         let url = `/templates/pay.html?oi=${orderId}`;
         alert(url);
-        window.location.href = `http://13.234.186.61/kspcla_client/templates/pay.html?oi=${orderId}`;
+        window.location.href = `http://localhost:3000/templates/pay.html?oi=${orderId}`;
         // // window.open(url)
         // routeToPayment()
         // alert('somehting')
@@ -197,7 +197,13 @@ $("#teachers-information").click(function (event) {
     .catch((error) => console.log(error));
   }
 });
-	
+
+//------------------------------Admin Logut-----------------------------
+
+function clearLog(){
+  localStorage.removeItem('valid');
+  window.location.reload();
+}
   
 
 //------------------------------ Admin Login API Call ------------------------------------------
@@ -213,16 +219,17 @@ $("#teachers-information").click(function (event) {
                   console.log(data);
                   $.ajax({
                     method: 'POST',
-                    url: 'http://13.234.186.61:5000/login',
+                    url: 'http://localhost:5000/login',
                     
                     data: JSON.stringify(data),
                     contentType: 'application/json',
                     success: function(response) {
-                      console.log(response);
+                      localStorage.setItem('valid',response.password)
+                      console.log(response,localStorage['valid']);
                         
                         alert('Login successful');
                         // Redirect to admin dashboard
-                        window.location='http://13.234.186.61/kspcla_client/templates/dashboard.html';
+                        window.location='http://localhost:3000/templates/dashboard.html';
                     }, 
                     error: function(xhr, status, error) {
                       alert('An error occurred: ' + error);
@@ -245,7 +252,7 @@ $(function() {
     console.log(data);
     $.ajax({
       method: 'PUT',
-      url: 'http://13.234.186.61:5000/login',
+      url: 'http://localhost:5000/login',
       
       data: JSON.stringify(data),
       contentType: 'application/json',
@@ -253,7 +260,7 @@ $(function() {
         console.log("Registration Successfull");
         alert("User Registered Successfully")
           // Redirect to admin dashboard
-        window.location='http://13.234.186.61/kspcla_client/templates/auth-login-basic.html'
+        window.location='http://localhost:3000/templates/auth-login-basic.html'
         event.preventDefault();
       },
       error: function(response){

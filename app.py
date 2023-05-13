@@ -5,15 +5,19 @@ from flask_migrate import Migrate
 
 from flask_cors import CORS, cross_origin
 from helpers import image_name
+from functools import wraps
 import os
 import base64
 import razorpay
+import jwt
+import datetime
 
 
 app = Flask(__name__)
 api = Api(app)
 cors = CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///teachers_db.db'
+app.config['SECRET_KEY'] = 'dontreveal'
 db = SQLAlchemy(app)
 
 #migrations
@@ -157,8 +161,7 @@ resource_fields = {
 	'reciept_num': fields.String,
 	'blood_grp': fields.String,
 	'img_name' : fields.String,
-	
-	
+	'message' : fields.String	
 }
 
 log_in_fields = {
@@ -166,6 +169,21 @@ log_in_fields = {
 	'email_id': fields.String,
 	'password': fields.String
 }
+
+def token_check(f):
+	@wraps(f)
+	def request_check(*args, **kwargs):
+		token = request.headers['Authorization']
+		if not token:
+			return {'message': 'This is not for Public!!!'},403
+		try:
+			data = jwt.decode(token,app.config['SECRET_KEY'],"HS256")
+			#print(data)
+		except:
+			return {'message': 'Login Required!!!'},403
+		
+		return f(*args, **kwargs)
+	return request_check
 
 class Teacher(Resource):
 	@marshal_with(resource_fields)
@@ -220,6 +238,7 @@ class Teacher(Resource):
 
 class Admin(Resource):
 	@marshal_with(resource_fields)
+	@token_check
 	def get(self,emp_contact):
 		
 		
@@ -237,9 +256,10 @@ class Admin(Resource):
 	
 	@cross_origin(origin='*',headers=['Content-Type','Authorization'])
 	@marshal_with(resource_fields)
+	@token_check
 	def put(self,emp_contact):
 		args = teacher_put_args.parse_args()
-		print('args ok')
+		#print('args ok')
 		result = Teachers.query.filter_by(emp_contact=emp_contact).first()
 		if not result:
 			abort(404, message="Member doesn't exist, cannot update")
@@ -293,6 +313,7 @@ class Admin(Resource):
 		
 		return result
 
+	@token_check
 	def delete(self,emp_contact):
 		result = Teachers.query.filter_by(emp_contact=emp_contact).first()
 		if not result:
@@ -306,13 +327,16 @@ class Admin_log(Resource):
 	# @cross_origin(origin='*',headers=['Content-Type','Authorization'])
 	@marshal_with(log_in_fields)
 	def post(self):
-		print("here")
-		print(admin_post_args.parse_args())
+		#print(admin_post_args.parse_args())
 		args = admin_post_args.parse_args()
 		result = Admins.query.filter_by(email_id=args['email_id'],password=args['password']).first()
 		if not result:
 			abort(400, message="Account not found")
-		return result, 200
+		else:
+			token = jwt.encode({'email_id':args['email_id'], 'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=20)}, app.config['SECRET_KEY'])
+			result.password = token
+			#print(token)
+			return result, 200
 	
 	
 	@marshal_with(log_in_fields)
@@ -326,7 +350,7 @@ class Admin_log(Resource):
 		admin = Admins(full_name=args['full_name'],email_id=args['email_id'],password=args['password'])
 		db.session.add(admin)
 		db.session.commit()
-		print("Registered user ")
+		#print("Registered user ")
 		return admin, 201
 	
 	@marshal_with(log_in_fields)
@@ -338,10 +362,12 @@ class Admin_log(Resource):
 class TeachersData(Resource):
 
 	@marshal_with(resource_fields)
+	@token_check
 	def test(teachers):
 		return teachers
 
 	
+	@token_check
 	def get(self):
 		page = request.args.get('page', 1, int)
 		per_page = request.args.get('per_page',10,int)
@@ -371,7 +397,7 @@ class RazorPaySuccess(Resource):
 	'''
 
 	def put(self, order_id):
-		print(request.json)
+		#print(request.json)
 		teacher = Teachers.query.filter(Teachers.razorpay_order_id == request.json['razorpay_order_id']).first()
 		teacher.razorpay_payment_id = request.json['razorpay_payment_id']
 		teacher.razorpay_signature = request.json['razorpay_signature']

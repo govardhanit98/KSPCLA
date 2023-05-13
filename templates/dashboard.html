@@ -18,7 +18,7 @@
   <meta name="description" content="" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/x-icon"  href="../images/logo.jpg" />
+  <link rel="icon" type="image/x-icon" href="../images/logo.jpg" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -111,8 +111,9 @@
         display: none;
       }
     }
-    center .register{
-      color:#25266D;
+
+    center .register {
+      color: #25266D;
     }
   </style>
 
@@ -153,9 +154,7 @@
             </a>
             <ul class="menu-sub">
               <li class="menu-item">
-                <a class="menu-link" href="auth-login-basic.html">
-                  <div data-i18n="Basic">Log Out</div>
-                </a>
+                  <div class="menu-link" data-i18n="Basic" onclick="clearLog()">Log Out</div>
               </li>
             </ul>
           </li>
@@ -177,17 +176,16 @@
           <!-- Content -->
 
           <div class="container-xxl flex-grow-1 container-p-y">
-            <a class="" href="auth-login-basic.html">
-              <button class="btn btn-warning logout " style="float: right" href="auth-login-basic.html">Log Out
+              <button class="btn btn-warning logout " style="float: right" href="#"
+                onclick="clearLog()">Log Out
               </button>
-            </a>
-            <center >
+            <center>
               <h4 class="fw-bold py-3 mb-4 register"><span class=" fw-light">Registered</span> Members </h4>
             </center>
 
 
             <!-- Basic Bootstrap Table -->
-            <div  style="display:flex; justify-content: space-between; align-items: center;">
+            <div style="display:flex; justify-content: space-between; align-items: center;">
               <div class="form-check form-control" style="display: inline-block;background-color:#ECECEC">
                 <h5 class="card-header">
                   <input class="form-check-input" type="checkbox" value="" id="defaultCheck3" unchecked=""
@@ -195,48 +193,53 @@
                   <label class="form-check-label" for="defaultCheck3" style="margin-top:6px;color: #3B55A4">
                     Select All
                   </label>
-            
-                  <button type="button" class="btn btn-danger" id="deleteData" onClick="deleteRow()">Delete Data</button>
-            
-                  <button type="button" id="get_data" class="btn btn-success" style="float: right;margin-left:10px;">Go</button>
-         
-            <select  id="employeeHomedistrict" name="clg_city" style="color: #25266D; font-size: 15px; font-weight: 500;float: right;margin-left:10px;border-color: #3B55A4;width: 10%;height: 38px;border-radius: 5px;background-color: #ECECEC;" class="form-control" placeholder=" " >
-              <option >District</option>
-          <option value="Bagalkot">Bagalkot</option>
-          <option value="Bangalore Rural">Bangalore Rural</option>
-          <option value="Bangalore Urban">Bangalore Urban</option>
-          <option value="Belgaum">Belgaum</option>
-          <option value="Bellary">Bellary</option>
-          <option value="Bidar">Bidar</option>
-          <option value="Bijapur">Bijapur</option>
-          <option value="Chamarajanagar">Chamarajanagar</option>
-          <option value="Chikkaballapur">Chikkaballapur</option>
-          <option value="Chikmagalur">Chikmagalur</option>
-          <option value="Chitradurga">Chitradurga</option>
-          <option value="Dakshina Kannada">Dakshina Kannada</option>
-          <option value="Davanagere">Davanagere</option>
-          <option value="Dharwad">Dharwad</option>
-          <option value="Gadag">Gadag</option>
-          <option value="Gulbarga">Gulbarga</option>
-          <option value="Hassan">Hassan</option>
-          <option value="Haveri">Haveri</option>
-          <option value="Kodagu">Kodagu</option>
-          <option value="Kolar">Kolar</option>
-          <option value="Koppal">Koppal</option>
-          <option value="Mandya">Mandya</option>
-          <option value="Mysore">Mysore</option>
-          <option value="Raichur">Raichur</option>
-          <option value="Ramanagara">Ramanagara</option>
-          <option value="Shimoga">Shimoga</option>
-          <option value="Tumkur">Tumkur</option>
-          <option value="Udupi">Udupi</option>
-          <option value="Uttara Kannada">Uttara Kannada</option>
-          <option value="Yadgir">Yadgir</option>
-  
-        </select>
-  
-  
-                  <select name="per_page" id="data" style="float: right;border-color: #3B55A4;width: 6%;height: 38px;border-radius: 5px;background-color: #ECECEC;">
+
+                  <button type="button" class="btn btn-danger" id="deleteData" onClick="deleteRow()">Delete
+                    Data</button>
+
+                  <button type="button" id="get_data" class="btn btn-success"
+                    style="float: right;margin-left:10px;">Go</button>
+
+                  <select id="employeeHomedistrict" name="clg_city"
+                    style="color: #25266D; font-size: 15px; font-weight: 500;float: right;margin-left:10px;border-color: #3B55A4;width: 10%;height: 38px;border-radius: 5px;background-color: #ECECEC;"
+                    class="form-control" placeholder=" ">
+                    <option>District</option>
+                    <option value="Bagalkot">Bagalkot</option>
+                    <option value="Bangalore Rural">Bangalore Rural</option>
+                    <option value="Bangalore Urban">Bangalore Urban</option>
+                    <option value="Belgaum">Belgaum</option>
+                    <option value="Bellary">Bellary</option>
+                    <option value="Bidar">Bidar</option>
+                    <option value="Bijapur">Bijapur</option>
+                    <option value="Chamarajanagar">Chamarajanagar</option>
+                    <option value="Chikkaballapur">Chikkaballapur</option>
+                    <option value="Chikmagalur">Chikmagalur</option>
+                    <option value="Chitradurga">Chitradurga</option>
+                    <option value="Dakshina Kannada">Dakshina Kannada</option>
+                    <option value="Davanagere">Davanagere</option>
+                    <option value="Dharwad">Dharwad</option>
+                    <option value="Gadag">Gadag</option>
+                    <option value="Gulbarga">Gulbarga</option>
+                    <option value="Hassan">Hassan</option>
+                    <option value="Haveri">Haveri</option>
+                    <option value="Kodagu">Kodagu</option>
+                    <option value="Kolar">Kolar</option>
+                    <option value="Koppal">Koppal</option>
+                    <option value="Mandya">Mandya</option>
+                    <option value="Mysore">Mysore</option>
+                    <option value="Raichur">Raichur</option>
+                    <option value="Ramanagara">Ramanagara</option>
+                    <option value="Shimoga">Shimoga</option>
+                    <option value="Tumkur">Tumkur</option>
+                    <option value="Udupi">Udupi</option>
+                    <option value="Uttara Kannada">Uttara Kannada</option>
+                    <option value="Yadgir">Yadgir</option>
+
+                  </select>
+
+
+                  <select name="per_page" id="data"
+                    style="float: right;border-color: #3B55A4;width: 6%;height: 38px;border-radius: 5px;background-color: #ECECEC;">
                     <option value="5">5</option>
                     <option value="10" selected>10</option>
                     <option value="15">15</option>
@@ -245,7 +248,7 @@
                 </h5>
               </div>
             </div>
-            
+
             <div class="table-responsive text-nowrap">
               <table class="table" id="employees">
                 <thead>
@@ -334,7 +337,7 @@
               tdEle.appendChild(aEle);
               trEle.appendChild(tdEle);
               for (let detail of Object.keys(user)) {
-                if (detail == 'img_name'){
+                if (detail == 'img_name') {
                   continue
                 } // after the demo do this in python.
                 tdEle = document.createElement('td');
@@ -370,24 +373,20 @@
                 });
               }
               async function postReq(req, empCon) {
-                const url = 'http://13.234.186.61:5000/admin/dashboard/' + empCon;
+                const url = 'http://localhost:5000/admin/dashboard/' + empCon;
                 let data = req;
                 // PUT request using fetch with async/await
-                console.log('before:', typeof (data));
                 const requestOptions = {
                   method: 'PUT',
-                  headers: { 'Content-Type': 'application/json' },
+                  headers: { 'Content-Type': 'application/json', 'Authorization': localStorage['valid'] },
                   body: JSON.stringify(data)
                 };
-                console.log('after:', typeof (requestOptions['body']));
                 const response = await fetch(url, requestOptions);
                 const result = await response.json();
-                console.log(result);
                 // location.reload();
               }
               editButtons.forEach(i => {
                 i.addEventListener('click', (event) => {
-                  console.log('clicked')
                   let empId = event.target.id;
                   let rows = document.querySelectorAll('.user');
                   rows.forEach(row => {
@@ -418,14 +417,11 @@
                           reciept_num: row.childNodes[22].textContent,
                           blood_grp: row.childNodes[23].textContent,
                         }
-                        console.log(data);
                         postReq(data, row.childNodes[16].textContent);
                         return;
                       }
                       row.firstChild.childNodes[1].classList.add('text-success');
-                      console.log(row.firstChild.childNodes[1]);
                       let cells = row.querySelectorAll('.editable');
-                      console.log(cells)
                       cells.forEach(cell => {
                         edit(cells)
                       });
@@ -446,10 +442,18 @@
               }
             }
 
-            fetch('http://13.234.186.61:5000/admin/teachers')
+            let options = {
+              method: 'GET',
+              headers: { accept: 'application/json', 'content-type': 'application/json', 'Authorization': localStorage['valid'] },
+            };
+            fetch('http://localhost:5000/admin/teachers', options)
               .then(x => x.json())
               .then(y => {
                 data = y;
+                if (data.message) {
+                  window.location = 'http://localhost:3000/templates/auth-login-basic.html'
+                  return
+                }
                 //Dynamic creation of buttons
                 let numberOfRecords = data[data.length - 1].number_of_teachers;
                 let per_page = parseInt(document.querySelector('#data').value)
@@ -498,7 +502,7 @@
                     }
                     let perPage = document.querySelector('#data').value;
 
-                    fetch(`http://13.234.186.61:5000/admin/teachers?page=${page}&per_page=${perPage}`)
+                    fetch(`http://localhost:5000/admin/teachers?page=${page}&per_page=${perPage}`, options)
                       .then(x => x.json())
                       .then(y => appendData(y))
                   })
@@ -525,7 +529,7 @@
               });
 
               let perPage = parseInt(document.querySelector('#data').value)
-              fetch(`http://13.234.186.61:5000/admin/teachers?page=1&per_page=${perPage}`)
+              fetch(`http://localhost:5000/admin/teachers?page=1&per_page=${perPage}`)
                 .then(x => x.json())
                 .then(y => {
                   data = y;
@@ -565,7 +569,7 @@
                       }
                       let perPage = document.querySelector('#data').value;
 
-                      fetch(`http://13.234.186.61:5000/admin/teachers?page=${page}&per_page=${perPage}`)
+                      fetch(`http://localhost:5000/admin/teachers?page=${page}&per_page=${perPage}`)
                         .then(x => x.json())
                         .then(y => appendData(y))
                     })
@@ -608,10 +612,11 @@
           </script>
           <script>
             function delData(empPh) {
-              const url = 'http://13.234.186.61:5000/admin/dashboard/' + empPh;
+              const url = 'http://localhost:5000/admin/dashboard/' + empPh;
               (async () => {
                 const requestOptions = {
                   method: 'DELETE',
+                  headers: {'Authorization': localStorage['valid']},
                 };
                 const response = await fetch(url, requestOptions);
                 const result = await response.text();
@@ -630,6 +635,11 @@
 
 
 
+            }
+
+            function clearLog() {
+              localStorage.removeItem('valid');
+              window.location.reload();
             }
           </script>
           <hr class="my-5" />

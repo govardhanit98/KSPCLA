@@ -469,7 +469,7 @@ button .click {
         <span class="text-sm text-gray-500 ml-3 dark:text-gray-400 "style=" color: #25266D; font-size: 15px; font-weight: 500;">Aided</span>
       </label>
     </div>
-    <div onclick="validate()" style="background-color: #5463FF; display: block; margin: 0 auto;"  id="regmod" class="btn btn-primary mt-4 ">
+    <div onclick="validateF()" style="background-color: #5463FF; display: block; margin: 0 auto;"  id="regmod" class="btn btn-primary mt-4 ">
       Click Here To Register 
     </div> 
 </div>
@@ -564,7 +564,7 @@ button .click {
               </div>
 
               <div class="col-12 py-4 px-3">
-                <label class="block text-sm font-medium text-gray-700"  style="color:#25266D;font-weight:700">
+                <label class="block text-sm font-medium text-gray-700"  style="color:#25266D;font-weight:700;font-size: 20px;">
                   College Address and College Code
                 </label>
                 <div class="col-sm-12 col-md-12 mb-3">
@@ -604,18 +604,18 @@ button .click {
               </div>
 
               <div class="col-12 py-4 px-3">
-                <label class="block text-sm font-medium text-gray-700">
+                <label class="block text-sm font-medium text-gray-700" style="color:#25266D;font-weight:700;font-size: 20px;">
                   Residential Address
                 </label>
                 <div class="col-sm-12 col-md-12 mb-3">
-                  <label class="form-label" for="employeeHomeStreetName">Street Name</label>
+                  <label style="color:#25266D;font-weight:700" class="form-label" for="employeeHomeStreetName">Street Name</label>
                   <input type="text" id="streetName" placeholder=" " name="emp_street_name" class="form-control"
                    />
 
                 </div>
               </div>
               <div class="col-sm-12 col-md-4 mb-3 employeeCommunicationAddress">
-                <label class="form-label" for="employeeCommunicationState">State</label>
+                <label style="color:#25266D;font-weight:700" class="form-label" for="employeeCommunicationState">State</label>
                 <select id="employeeCommunicationState" name="emp_state"
                   onchange="print_city('employeeCommunicationCity', this.selectedIndex);"
                   name="employeeCommunicationState" class="form-control" placeholder=" " />
@@ -623,7 +623,7 @@ button .click {
                 </select>
               </div>
               <div class="col-sm-12 col-md-4 mb-3 employeeCommunicationAddress">
-                <label class="form-label" for="employeeCommunicationCity">district</label>
+                <label class="form-label" style="color:#25266D;font-weight:700" for="employeeCommunicationCity">district</label>
                 <select id="employeeCommunicationCity" name="emp_city" class="form-control" placeholder=" "
                   ></select>
               </div>
@@ -635,7 +635,7 @@ button .click {
               <div class="col-sm-12 col-md-6 mb-3">
                 <label class="form-label"  style="color:#25266D;font-weight:700" for="employeeHomeCity">Country</label>
                 <select id="employeeHomeCountry" name="emp_country" class="form-control" placeholder=" " required>
-                  <option value="India">India</option>
+                  <option style="color:#25266D;font-weight:700" value="India">India</option>
                 </select>
               </div>
 
