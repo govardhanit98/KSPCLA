@@ -458,7 +458,7 @@
                 let numberOfRecords = data[data.length - 1].number_of_teachers;
                 let per_page = parseInt(document.querySelector('#data').value)
                 let numberOfDynamicbuttons = Math.ceil(numberOfRecords / per_page)
-
+                
                 // original 
                 for (let i = 1; i <= numberOfDynamicbuttons; i++) {
                   let paginationButtons = document.querySelector('#pagination-buttons');
@@ -501,8 +501,8 @@
                       tableRowLength -= 1;
                     }
                     let perPage = document.querySelector('#data').value;
-
-                    fetch(`http://localhost:5000/admin/teachers?page=${page}&per_page=${perPage}`, options)
+                    let district = document.querySelector('#employeeHomedistrict').value;
+                    fetch(`http://localhost:5000/admin/teachers?page=${page}&per_page=${perPage}&district=${district}`)
                       .then(x => x.json())
                       .then(y => appendData(y))
                   })
@@ -527,9 +527,9 @@
               buttonsToRemove.forEach(button => {
                 button.remove();
               });
-
-              let perPage = parseInt(document.querySelector('#data').value)
-              fetch(`http://localhost:5000/admin/teachers?page=1&per_page=${perPage}`)
+              let district = document.querySelector('#employeeHomedistrict').value;
+              let perPage = parseInt(document.querySelector('#data').value);
+              fetch(`http://localhost:5000/admin/teachers?page=1&per_page=${perPage}&district=${district}`)
                 .then(x => x.json())
                 .then(y => {
                   data = y;
@@ -568,8 +568,8 @@
                         tableRowLength -= 1;
                       }
                       let perPage = document.querySelector('#data').value;
-
-                      fetch(`http://localhost:5000/admin/teachers?page=${page}&per_page=${perPage}`)
+                      let district = document.querySelector('#employeeHomedistrict').value;
+                      fetch(`http://localhost:5000/admin/teachers?page=${page}&per_page=${perPage}&district=${district}`)
                         .then(x => x.json())
                         .then(y => appendData(y))
                     })
