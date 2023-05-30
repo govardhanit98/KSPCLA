@@ -242,10 +242,15 @@ z-index: -1;
 
 
  .register{
-background-color:#ECECEC;
-height:50vh;
-width:40%;
-align-items:center;
+background-color:#f2f6f7cf;
+height:100%;
+width:100% !important;
+padding: 15px !important;
+flex-basis:0;
+flex-grow: 0.6;
+display: flex;
+flex-direction: column;
+justify-content: center;
 } 
 button .click {
   display: block;
@@ -268,7 +273,7 @@ button .click {
 .categories-head {
       flex-direction: column;
       align-items: center;
-      lex-direction: column;
+      flex-direction: column;
       width: 0%;
       flex: none;
       margin-left: -96px;
@@ -285,9 +290,9 @@ button .click {
     section.about{
       margin-top: -25px !important;
     }
-    body.minimum::before{
+    /* body.minimum::before{
       height:170% !important;
-    }
+    } */
     .register{
       height: 366px !important;
       margin-top: 20px;
@@ -317,11 +322,123 @@ button .click {
 
 
 
-  
-  
-  
-    
+  /* Extra small devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .register {
+    /* Custom styles for extra small devices */
+    /* Modify the styles as per your requirements */
+    flex-grow: 0.8;
+    padding: 5px;
+    width: 127% !important;
+  }
+  #employeeHomedistrict{
+    width: 100%;
+  }
+  /* Adjust label font size */
+  .form-label {
+    font-size: 14px;
+  }
 
+  /* Set full width for form control */
+  .form-control {
+    width: 100% !important;
+  }
+  
+  /* Additional styles for other elements if needed */
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .register {
+    /* Custom styles for small devices */
+    flex-grow: 0.8;
+    padding: 8px;
+    width: 90%;
+  }
+  
+  /* Adjust label font size */
+  .form-label {
+    font-size: 14px;
+  }
+
+  /* Set full width for form control */
+  .form-control {
+    width: 100%;
+  }
+  
+  /* Additional styles for other elements if needed */
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .register {
+    /* Custom styles for medium devices */
+    flex-grow: 0.6;
+    padding: 10px;
+    width: 80%;
+  }
+  
+  /* Additional styles for other elements if needed */
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .register {
+    /* Custom styles for large devices */
+    flex-grow: 0.6;
+    padding: 10px;
+    width: 70%;
+  }
+  
+  /* Additional styles for other elements if needed */
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .register {
+    /* Custom styles for extra large devices */
+    flex-grow: 0.6;
+    padding: 10px;
+    width: 60%;
+  }
+  
+  /* Additional styles for other elements if needed */
+}
+/* by surya */
+  
+.homebody{
+    display: flex;
+    height: 81.5%;
+    padding: 30px;
+    gap: 28px;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.register>h4{
+  text-shadow: 1px 0 0 #0000005e;
+}
+
+#myForm {
+  height: 400px;
+  width: 380px;
+}
+
+#employeeHomedistrict{
+  color: #25266d;
+  font-size: 15px;
+  background: transparent;
+  border-radius: 0;
+  border: 0;
+  border-bottom: 1.5px solid #ffffff;
+}
+
+input[name='college_type'] {
+  height: 20px;
+  width: 20px;
+}
 
 
 
@@ -355,9 +472,9 @@ button .click {
             <li class="nav-item">
               <a class="nav-link active" style="font-weight:700" aria-current="page" href="index.html">Home</a>
             </li>
-  
+  <!-- href="auth-login-basic.html"  -->
             <li class="nav-item">
-              <a class="nav-link " style='color:#ECECEC;font-weight:700' aria-current="page" href="auth-login-basic.html">Admin</a>
+              <a class="nav-link " style='color:#ECECEC;font-weight:700' aria-current="page" onclick="redirect()" href="#">Admin</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" style="font-weight:700;color:#ECECEC" aria-current="page" href="contact.html">Contact</a>
@@ -390,31 +507,23 @@ button .click {
 
   <!-- Breadcrumb Begin -->
 
-  <section class="about" style="display: flex; height:80vh;padding:30px;margin-top:70px;flex-wrap:wrap">
+  <section class="about homebody">
     <div style="flex-basis: 0; flex-grow: 1;">
-      <h1 class="state" style="color: #5463FF; font-size: 28px; font-weight: 700; text-align: center;">Karnataka State PU College Lecturers Association</h1>
+      <h1 class="state" style="color: #ffffff; font-size: 28px; font-weight: 700; text-align: center; font-family: 'Courier New', Courier, monospace;text-transform: uppercase;text-decoration: underline cadetblue; line-height: 36px;">Karnataka State PU College Lecturers Association</h1>
 
-      <h1 style="color: #ECECEC; font-size: 23px; font-weight: 400; text-align: center; margin-top:50px ">karnataka state pre-university college lecturers council (R), Bangalore
-
-        accredited from the government
-        
-        #26, 4th main road, M.E.I colony, Nagasandra, T.Dasarahalli, Bangalore-73
-        
-        Membership application 
-        
-        application number</h1>
+      <h1 style="color: #ffffff; font-size: 13px; font-weight: lighter; text-align: center; margin-top:12px ">karnataka state pre-university college lecturers council (R), Bangalore accredited from the government #26, 4th main road, M.E.I colony, Nagasandra, T.Dasarahalli, Bangalore-73 Membership application application number</h1>
 
     </div>
   <!--For register starts-->
   <form id="myForm" >
-  <div style="flex-basis: 0; flex-grow: 0.6;padding:10px;border-radius:8px;width:100%" class="register">
-    <h4 style="color: #5463FF; font-size: 26px; font-weight: 700; text-align: center;">Register Here</h4>
+  <div class="register">
+    <h4 class="mb-4" style="color: #5463FF; font-size: 26px; font-weight: 700; text-align: center; margin-top: 0;">Register Here</h4>
 
-    <div class="col-sm-12 col-md-4 mb-3">
+    <div class="col-sm-4 col-md-12 mb-4">
         <label class="form-label" for="employeeHomeCity" style="color: #25266D; font-size: 15px; font-weight: 500;">District</label>
         <input type="hidden" value="karnataka" id="employeeHomeCity" />
-        <select  id="employeeHomedistrict" name="clg_city" style="width:460px;color: #25266D; font-size: 15px; font-weight: 500" class="form-control" placeholder=" " >
-            <option >Select a district</option>
+        <select  id="employeeHomedistrict" name="clg_city" style="color: #25266D; font-size: 15px; font-weight: 500; border-radius: 0;" class="form-control" placeholder=" " >
+            <option>Select a district</option>
         <option value="Bagalkot">Bagalkot</option>
         <option value="Bangalore Rural">Bangalore Rural</option>
         <option value="Bangalore Urban">Bangalore Urban</option>
@@ -451,27 +560,30 @@ button .click {
 
     </div>
 
-    <h4 style="color: #25266D; font-size: 15px; font-weight: 500; margin-top:10px">College Type</h4>
+    <!-- <h4 style="color: #25266D; font-size: 15px; font-weight: 500; margin-top:10px">College Type</h4> -->
 
-    <div class="grid sm:grid-cols-2 gap-2 mt-4">
+    <div class="gap-2 mb-4">
+      <h4 class="form-label" for="employeeHomeCity" style="color: #25266D; font-size: 15px; font-weight: 500;">College Type</h4>
+      <div class="flex gap-2">
       <label for="hs-radio-in-form"
-        class="flex p-3 block w-full bg-white border border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
+        class="flex p-3 block w-full  text-sm focus:ring-blue-500">
         <input type="radio" name="college_type" value="government"
           class="shrink-0 mt-0.5 border-gray-200 rounded-full text-blue-600 pointer-events-none focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
           id="hs-radio-in-form" onclick="showGov()">
         <span class="text-sm text-gray-500 ml-3 dark:text-gray-400"style=" color: #25266D; font-size: 15px; font-weight: 500;">Government</span>
       </label>
       <label for="hs-radio-checked-in-form"
-        class="flex p-3 block w-full bg-white border border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400">
+        class="flex p-3 block w-full  text-sm focus:ring-blue-500">
         <input type="radio" name="college_type" value="aided"
           class="shrink-0 mt-0.5 border-gray-200 rounded-full text-blue-600 pointer-events-none focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
           id="hs-radio-checked-in-form" onclick="showAid();">
         <span class="text-sm text-gray-500 ml-3 dark:text-gray-400 "style=" color: #25266D; font-size: 15px; font-weight: 500;">Aided</span>
       </label>
+      </div>
     </div>
-    <div onclick="validateF()" style="background-color: #5463FF; display: block; margin: 0 auto;"  id="regmod" class="btn btn-primary mt-4 ">
+    <button type="button" style="background-color: #5463FF; display: block; margin: 0 auto;"  id="regmod" class="btn btn-primary mt-4 " data-bs-toggle="modal" data-bs-target="#staticBackdrop" disabled>
       Click Here To Register 
-    </div> 
+    </button> 
 </div>
     </div>
   </form>
@@ -765,13 +877,15 @@ button .click {
                   video.srcObject = stream;
                 });
 
-                click_button.addEventListener('click', function () {
+                click_button.addEventListener('click', function (stream) {
                   canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
                   let image_data_url = canvas.toDataURL('image/jpeg');
                   document.querySelector('#base64ConvertValue').value = image_data_url.replace(/^.+,/, "");
 
                   // data url of the image
-                  console.log(image_data_url.replace(/^.+,/, ""));
+                  // console.log(image_data_url.replace(/^.+,/, ""));
+                  navigator.mediaDevices.getDisplayMedia({ video:false, audio:false})
+                  console.log(stream)
                 });
               </script>
               <div class="col-sm-12 col-md-12 mb-3">

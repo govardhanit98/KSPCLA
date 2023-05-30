@@ -15,55 +15,6 @@ let isNumber = (evt) => {
 
 }
 //---------------------------------Validations -----------------------------------------------
-// --------------------------------For Register---------------------------------------------
-function validateF() {
-  
-  let button = document.getElementById('regmod');
-  button.removeAttribute('data-bs-toggle')
-  button.removeAttribute('data-bs-target')
-  var district = document.getElementById("employeeHomedistrict");
-  var radioButtons = document.getElementsByName("college_type");
-  var checked = false;
-  for (var i = 0; i < radioButtons.length; i++) {
-    if (radioButtons[i].checked) {
-      checked = true;
-      break;
-    }
-  }
-
-  if (district.value === "Select a district") {
-    alert("District cannot be blank");
-    return false;
-  } else if (!checked) {
-    alert("Please select one of the college types");
-    college_type.classList.add("highlight");
-    setTimeout(function () {
-      college_type.classList.remove("highlight");
-    }, 3000);
-    return false;
-  } else {
-    const kgidField = document.querySelector('#textKGID');
-    const selectedOption = document.querySelector('input[name="college_type"]:checked');
-    if (selectedOption.value === 'government') {
-      if (kgidField.value === '') {
-        alert('Please enter a value for KGID');
-        return false;
-      }
-    }
-
-    button.setAttribute('data-bs-toggle', 'modal');
-    button.setAttribute('data-bs-target', '#staticBackdrop');
-
-    return true;
-
-  }
-}
-
-
-
-
-
-
 
 function validateForm() {
   const nameInput = document.getElementById("employeeFirstName");

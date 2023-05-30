@@ -332,7 +332,8 @@
               tdEle = document.createElement('td');
               cnt += 1;
               aEle = document.createElement('a');
-              aEle.href = `${serverAddress}/templates/login.html?id=` + empId;
+              // aEle.href = `${serverAddress}/templates/login.html?id=` + empId;
+              aEle.href = `login.html?id=` + empId;
               aEle.textContent = cnt;
               tdEle.appendChild(aEle);
               trEle.appendChild(tdEle);
@@ -354,6 +355,7 @@
               };
               createEditBtns()
             }
+            
             function createEditBtns() {
               let editableCells = ''; // for editing the specified row cells
               let editButtons = document.querySelectorAll('.editbtn'); // for edit icons
@@ -373,7 +375,7 @@
                 });
               }
               async function postReq(req, empCon) {
-                const url = 'http://localhost:5000/admin/dashboard/' + empCon;
+                const url = serverAddress +'admin/dashboard/' + empCon;
                 let data = req;
                 // PUT request using fetch with async/await
                 const requestOptions = {
@@ -383,7 +385,7 @@
                 };
                 const response = await fetch(url, requestOptions);
                 const result = await response.json();
-                // location.reload();
+                location.reload();
               }
               editButtons.forEach(i => {
                 i.addEventListener('click', (event) => {
@@ -446,12 +448,12 @@
               method: 'GET',
               headers: { accept: 'application/json', 'content-type': 'application/json', 'Authorization': localStorage['valid'] },
             };
-            fetch('http://localhost:5000/admin/teachers', options)
+            fetch(serverAddress + 'admin/teachers', options)
               .then(x => x.json())
               .then(y => {
                 data = y;
                 if (data.message) {
-                  window.location = 'http://localhost:3000/templates/auth-login-basic.html'
+                  window.location = 'auth-login-basic.html'
                   return
                 }
                 //Dynamic creation of buttons
@@ -502,7 +504,12 @@
                     }
                     let perPage = document.querySelector('#data').value;
                     let district = document.querySelector('#employeeHomedistrict').value;
-                    fetch(`http://localhost:5000/admin/teachers?page=${page}&per_page=${perPage}&district=${district}`)
+
+                    let options = {
+                      method: 'GET',
+                      headers: { accept: 'application/json', 'content-type': 'application/json', 'Authorization': localStorage['valid'] },
+                    };
+                    fetch(`${serverAddress}admin/teachers?page=${page}&per_page=${perPage}&district=${district}`, options)
                       .then(x => x.json())
                       .then(y => appendData(y))
                   })
@@ -529,7 +536,12 @@
               });
               let district = document.querySelector('#employeeHomedistrict').value;
               let perPage = parseInt(document.querySelector('#data').value);
-              fetch(`http://localhost:5000/admin/teachers?page=1&per_page=${perPage}&district=${district}`)
+
+              let options = {
+                method: 'GET',
+                headers: { accept: 'application/json', 'content-type': 'application/json', 'Authorization': localStorage['valid'] },
+              };
+              fetch(`${serverAddress}admin/teachers?page=1&per_page=${perPage}&district=${district}`,options)
                 .then(x => x.json())
                 .then(y => {
                   data = y;
@@ -569,7 +581,13 @@
                       }
                       let perPage = document.querySelector('#data').value;
                       let district = document.querySelector('#employeeHomedistrict').value;
-                      fetch(`http://localhost:5000/admin/teachers?page=${page}&per_page=${perPage}&district=${district}`)
+
+                      let options = {
+                        method: 'GET',
+                        headers: { accept: 'application/json', 'content-type': 'application/json', 'Authorization': localStorage['valid'] },
+                      };
+                      
+                      fetch(`${serverAddress}admin/teachers?page=${page}&per_page=${perPage}&district=${district}`, options)
                         .then(x => x.json())
                         .then(y => appendData(y))
                     })
@@ -612,7 +630,7 @@
           </script>
           <script>
             function delData(empPh) {
-              const url = 'http://localhost:5000/admin/dashboard/' + empPh;
+              const url = serverAddress + '/admin/dashboard/' + empPh;
               (async () => {
                 const requestOptions = {
                   method: 'DELETE',

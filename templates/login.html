@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="../css/sneatbs/demo.css" />
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <!-- <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" /> -->
 
     <!-- Page CSS -->
     <!-- Page -->
@@ -53,7 +53,7 @@
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="../assets/js/config.js"></script>
+    <script src="../js/sneatjs/config.js"></script>
   </head>
 
   <body>
@@ -102,7 +102,8 @@
 
     <!-- / Content -->
     <!-- below script element developer by surya -->
-    <script>
+          <script src="../js/mdbjs/server_conf.js"></script>
+          <script>
       const urlParams = (window.location.href);
       const params = urlParams.split('?')[1];
       const param = params.split('=')[1];
@@ -130,28 +131,36 @@
       }
     </script>
     <script>
-      fetch(`http://localhost:5000/admin/dashboard/`+param)
+
+      let options = {
+        method: 'GET',
+        headers: { accept: 'application/json', 'content-type': 'application/json', 'Authorization': localStorage['valid'] },
+      };
+      fetch(`${serverAddress}admin/dashboard/`+param,options)
       .then(x => x.json())
       .then(y => {
-        console.log(y);
+        if (y.message){
+          window.location = 'auth-login-basic.html'
+          return
+        }
         cardGen(y);
       })
     </script>
 <!-- upto here by surya -->
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
-    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
-    <script src="../assets/vendor/libs/popper/popper.js"></script>
-    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../js/sneatjs/jquery.js"></script>
+    <script src="../js/sneatjs/popper.js"></script>
+    <script src="../js/sneatjs/bootstrap.js"></script>
 
-    <script src="../assets/vendor/js/menu.js"></script>
+    <script src="../js/sneatjs/menu.js"></script>
     <!-- endbuild -->
     <!-- <a href=""></a> -->
 
     <!-- Vendors JS -->
 
     <!-- Main JS -->
-    <script src="../assets/js/main.js"></script>
+    <script src="../js/sneatjs/main.js"></script>
 
     <!-- Page JS -->
     <!-- Place this tag in your head or just before your close body tag. -->

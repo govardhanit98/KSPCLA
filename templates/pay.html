@@ -35,7 +35,7 @@
                 // alert(response.razorpay_payment_id);
                 // alert(response.razorpay_order_id);
                 // alert(response.razorpay_signature);
-                fetch('http://localhost:5000/razorpay/success/order_LaJcS2fLuZ3oNZ',
+                fetch(serverAddress + 'razorpay/success/order_LaJcS2fLuZ3oNZ',
                     {
                         method: 'PUT',
                         headers: { 'Content-Type': 'application/json' },

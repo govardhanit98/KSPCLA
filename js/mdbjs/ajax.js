@@ -126,7 +126,7 @@
 
 function routeToPayment() {
   alert("routing to payment");
-  window.open("https://www.google.com/");
+  window.open("http://www.google.com/");
 }
 
 $("#teachers-information").click(function (event) {
@@ -166,11 +166,10 @@ $("#teachers-information").click(function (event) {
     // image_name:$("[name='image_name'").val(),
     image_name: $("[name='base64ConvertValue'").val(),
   };
-  console.log(data);
   let filled = validateForm()
 
   if (filled){
-    let url = "http://localhost:5000/register/success/" + data["emp_contact"];
+    let url = `${serverAddress}/register/success/` + data["emp_contact"];
   fetch(url, {
     method: "POST",
     headers: {
@@ -188,7 +187,8 @@ $("#teachers-information").click(function (event) {
       if (confirm("do you wish to make payment") == true) {
         let url = `/templates/pay.html?oi=${orderId}`;
         alert(url);
-        window.location.href = `http://localhost:3000/templates/pay.html?oi=${orderId}`;
+        // window.location.href = `http://localhost:3000/templates/pay.html?oi=${orderId}`;
+        window.location.href = `pay.html?oi=${orderId}`;
         // // window.open(url)
         // routeToPayment()
         // alert('somehting')
@@ -216,20 +216,19 @@ function clearLog(){
                     email_id: $('#email_id').val(),
                     password: $('#password').val()
                   };
-                  console.log(data);
+
                   $.ajax({
                     method: 'POST',
-                    url: 'http://localhost:5000/login',
+                    url: serverAddress+'login',
                     
                     data: JSON.stringify(data),
                     contentType: 'application/json',
                     success: function(response) {
                       localStorage.setItem('valid',response.password)
-                      console.log(response,localStorage['valid']);
                         
                         alert('Login successful');
                         // Redirect to admin dashboard
-                        window.location='http://localhost:3000/templates/dashboard.html';
+                        window.location='dashboard.html';
                     }, 
                     error: function(xhr, status, error) {
                       alert('An error occurred: ' + error);
@@ -249,24 +248,22 @@ $(function() {
       password: $('#password').val(),
 
     };
-    console.log(data);
+
     $.ajax({
       method: 'PUT',
-      url: 'http://localhost:5000/login',
+      url: serverAddress+'login',
       
       data: JSON.stringify(data),
       contentType: 'application/json',
       success: function(response) {
-        console.log("Registration Successfull");
+
         alert("User Registered Successfully")
-          // Redirect to admin dashboard
-        window.location='http://localhost:3000/templates/auth-login-basic.html'
+          // Redirect to admin login
+        window.location='auth-login-basic.html'
         event.preventDefault();
       },
       error: function(response){
-        console.log('error');
-        alert('error');
-        console.log(response);
+        response.responseJSON.message ? alert(response.responseJSON.message):alert('Something went Wrong...')
       }
     });
   });

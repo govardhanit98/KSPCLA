@@ -1,3 +1,38 @@
+//-------------------------------for home page form functionality------------------------------------------
+      
+var radioButtons = document.getElementsByName("college_type");
+var district = document.getElementById("employeeHomedistrict");
+var button = document.getElementById('regmod');
+
+district.addEventListener('change', function () {
+  if (district.value == "Select a district") {
+    button.disabled = true;
+    const kgidField = document.querySelector('#textKGID');
+  }
+  });
+
+for (var i = 0; i < radioButtons.length; i++) {
+  radioButtons[i].addEventListener('change', function () {
+    if (district.value !== "Select a district") {
+      let button = document.getElementById('regmod');
+      button.removeAttribute('disabled');const kgidField = document.querySelector('#textKGID');
+    } else{
+      alert('first select the DISTRICT of College');
+      this.checked=false;
+    }
+  })
+}
+//--------------------------------------for admin redirection--------------------------------------------
+
+function redirect() {
+  console.log('checked')
+  if (localStorage['valid']){
+    window.location='dashboard.html';
+  } else {
+    window.location='auth-login-basic.html';
+  }
+}
+
 //------------------------------for uploading the Potrait image------------------------------------------
 
 const fileInputElement = document.querySelector("input#input1");
@@ -106,44 +141,47 @@ function googleTranslateElementInit() {
 
 //------------------------------Dynamic Creation of Elements------------------------------------------
 
-tableEle = document.getElementById("employees");
-let cnt = 0;
-function row(user) {
-  const empId = user["emp_contact"];
-  trEle = document.createElement("tr");
-  trEle.classList.add("user");
-  tdEle = document.createElement("td");
-  var checkbox = document.createElement("INPUT"); //Added for checkbox
-  checkbox.type = "checkbox"; //Added for checkbox
-  checkbox.id = empId;
-  var editIcon = document.createElement("i");
-  editIcon.classList.add("fa-solid", "fa-pen-to-square", "editbtn");
-  editIcon.id = empId;
-  tdEle.append(checkbox); //Added for checkbox
-  tdEle.append(editIcon); //Added for edit icon
-  trEle.appendChild(tdEle);
-  tdEle = document.createElement("td");
-  cnt += 1;
-  aEle = document.createElement("a");
-  aEle.href = "http://localhost:3000/templates/login.html?id=" + empId;
-  aEle.textContent = cnt;
-  tdEle.appendChild(aEle);
-  trEle.appendChild(tdEle);
-  for (let detail of Object.keys(user)) {
-    tdEle = document.createElement("td");
-    tdEle.textContent = user[detail];
-    tdEle.classList.add("editable");
-    trEle.appendChild(tdEle);
-  }
-  tableEle.appendChild(trEle);
-}
-function appendData(data) {
-  // console.log(data)
-  for (let i = 0; i < data.length; i++) {
-    row(data[i]);
-  }
-  createEditBtns();
-}
+// tableEle = document.getElementById("employees");
+// let cnt = 0;
+// function row(user) {
+//   const empId = user["emp_contact"];
+//   trEle = document.createElement("tr");
+//   trEle.classList.add("user");
+//   tdEle = document.createElement("td");
+//   var checkbox = document.createElement("INPUT"); //Added for checkbox
+//   checkbox.type = "checkbox"; //Added for checkbox
+//   checkbox.id = empId;
+//   var editIcon = document.createElement("i");
+//   editIcon.classList.add("fa-solid", "fa-pen-to-square", "editbtn");
+//   editIcon.id = empId;
+//   tdEle.append(checkbox); //Added for checkbox
+//   tdEle.append(editIcon); //Added for edit icon
+//   trEle.appendChild(tdEle);
+//   tdEle = document.createElement("td");
+//   cnt += 1;
+//   aEle = document.createElement("a");
+//   aEle.href = "login.html";
+//   console.log(aEle)
+//   // aEle.href = "login.html?id=" + empId;
+//   aEle.textContent = cnt;
+//   tdEle.appendChild(aEle);
+//   trEle.appendChild(tdEle);
+//   for (let detail of Object.keys(user)) {
+//     tdEle = document.createElement("td");
+//     tdEle.textContent = user[detail];
+//     tdEle.classList.add("editable");
+//     trEle.appendChild(tdEle);
+//   }
+//   tableEle.appendChild(trEle);
+// }
+
+// function appendData(data) {
+//   // console.log(data)
+//   for (let i = 0; i < data.length; i++) {
+//     row(data[i]);
+//   }
+//   createEditBtns();
+// }
 
 //------------------------------Dynamic Creation of Edit Buttons with icon------------------------------------------
 
@@ -167,7 +205,7 @@ function createEditBtns() {
     });
   }
   async function postReq(req, empCon) {
-    const url = "http://localhost:5000/admin/dashboard/" + empCon;
+    const url = serverAddress + "admin/dashboard/" + empCon;
     let data = req;
     // PUT request using fetch with async/await
     console.log("before:", typeof data);
@@ -252,9 +290,9 @@ function createEditBtns() {
 
 //------------------------------ for Getting The final data with appended values ------------------------------------------
 
-fetch("http://localhost:5000/admin/dashboard/0")
-  .then((x) => x.json())
-  .then((y) => appendData(y));
+// fetch("http://localhost:5000/admin/dashboard/0")
+//   .then((x) => x.json())
+//   .then((y) => appendData(y));
 
 //------------------------------ Master CheckBox to check the values ------------------------------------------
 
@@ -269,7 +307,7 @@ function checkAll(o) {
 }
 //------------------------------ Delete Function to delete the records from table ------------------------------------------
 function delData(empPh) {
-  const url = "http://localhost:5000/admin/dashboard/" + empPh;
+  const url = serverAddress + "admin/dashboard/" + empPh;
   (async () => {
     // PUT request using fetch with async/await
     const requestOptions = {
